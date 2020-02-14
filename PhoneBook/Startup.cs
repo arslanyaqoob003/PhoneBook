@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PhoneBook.Application.Companies;
+using PhoneBook.Application.Persons;
 using PhoneBook.Infrastructure;
+using PhoneBook.Infrastructure.Repository;
 
 namespace PhoneBook
 {
@@ -29,7 +33,20 @@ namespace PhoneBook
         {
             services.AddControllers();
             services.AddDbContext<PhoneBookContext>(options => options.UseInMemoryDatabase(databaseName: "PhoneBook"));
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+
+            services.AddAutoMapper(cfg=> 
+            {
+                cfg.CreateMissingTypeMaps = true;
+            });
+
+           // register repositories
+           services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+
+            // register services
+            services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IPersonService, PersonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,8 +56,6 @@ namespace PhoneBook
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 

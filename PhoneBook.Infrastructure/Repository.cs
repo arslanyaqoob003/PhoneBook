@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PhoneBook.Core.Exceptions;
 using PhoneBook.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PhoneBook.Infrastructure
 {
-    public class Repository<T> : IRepository<T> where T : Entity
+    public class Repository<T> : IRepository<T> where T : Entity,new()
     {
         private readonly PhoneBookContext context;
         private DbSet<T> entities;
@@ -17,42 +19,44 @@ namespace PhoneBook.Infrastructure
             this.context = context;
             entities = context.Set<T>();
         }
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> Get()
         {
             return entities.AsEnumerable();
         }
 
-        public T Get(long id)
+        public Task<T> Get(long id)
         {
-            return entities.SingleOrDefault(s => s.Id == id);
+            return entities.SingleOrDefaultAsync(s => s.Id == id);
         }
-        public void Insert(T entity)
+        public async Task<T> Insert(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
             entities.Add(entity);
-            context.SaveChanges();
+           await context.SaveChangesAsync();
+           return entity;
         }
 
-        public void Update(T entity)
+        public Task Update(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
-            context.SaveChanges();
+           return context.SaveChangesAsync();
         }
 
-        public void Delete(T entity)
+        public async Task Delete(int id)
         {
+            var entity = await entities.SingleOrDefaultAsync(s => s.Id == id);
             if (entity == null)
             {
-                throw new ArgumentNullException("entity");
+                throw new NotFoundException("entity");
             }
             entities.Remove(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
         public void Remove(T entity)
         {
@@ -63,9 +67,9 @@ namespace PhoneBook.Infrastructure
             entities.Remove(entity);
         }
 
-        public void SaveChanges()
+        public Task SaveChanges()
         {
-            context.SaveChanges();
+            return context.SaveChangesAsync();
         }
     }
 }

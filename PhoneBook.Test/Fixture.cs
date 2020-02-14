@@ -1,0 +1,53 @@
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using PhoneBook.Application.Companies;
+using PhoneBook.Application.Persons;
+using PhoneBook.Core.Domain;
+using PhoneBook.Infrastructure;
+using PhoneBook.Infrastructure.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace PhoneBook.Test
+{
+
+    public class Fixture
+    {
+        public ServiceProvider ServiceProvider { get; private set; }
+        public PhoneBookContext Context { get;  private set; }
+        public Fixture()
+        {
+            var services = new ServiceCollection();
+            services
+                .AddDbContext<PhoneBookContext>(options =>  options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+            var mapper = new MapperConfiguration(cfg =>{
+                cfg.CreateMissingTypeMaps = true;
+                //cfg.CreateMap<CompanyDto, Company>();
+                //cfg.CreateMap<Company, CompanyDto>();
+
+                //cfg.CreateMap<PersonDto, Person>();
+                //cfg.CreateMap<Person, PersonDto>();
+            }).CreateMapper();
+            services.AddScoped(x=> mapper);
+
+
+            // register repositories
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+
+            // register services
+            services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IPersonService, PersonService>();
+
+            ServiceProvider = services.BuildServiceProvider();
+            Context = ServiceProvider.GetService<PhoneBookContext>();
+        }
+
+    }
+}
