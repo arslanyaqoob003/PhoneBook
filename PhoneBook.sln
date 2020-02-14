@@ -5,13 +5,18 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Api", "PhoneBook\PhoneBook.Api.csproj", "{68C12E30-AD38-41E8-974A-50558148DA90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Application", "PhoneBook.Application\PhoneBook.Application.csproj", "{19F78D06-295B-4AFB-880B-126164A239AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Application", "PhoneBook.Application\PhoneBook.Application.csproj", "{19F78D06-295B-4AFB-880B-126164A239AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Core", "PhoneBook.Core\PhoneBook.Core.csproj", "{E705FC61-08B1-4C9A-A63E-EA8C554446C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Core", "PhoneBook.Core\PhoneBook.Core.csproj", "{E705FC61-08B1-4C9A-A63E-EA8C554446C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Infrastructure", "PhoneBook.Infrastructure\PhoneBook.Infrastructure.csproj", "{324490D9-B403-46CE-9820-9139DB5F15C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Infrastructure", "PhoneBook.Infrastructure\PhoneBook.Infrastructure.csproj", "{324490D9-B403-46CE-9820-9139DB5F15C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Test", "PhoneBook.Test\PhoneBook.Test.csproj", "{F63F994E-AD36-4BF7-BB88-7C88250C372F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Test", "PhoneBook.Test\PhoneBook.Test.csproj", "{F63F994E-AD36-4BF7-BB88-7C88250C372F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{987E7F7C-4119-4509-A79E-1F676AF4CA3C}"
+	ProjectSection(SolutionItems) = preProject
+		README.txt = README.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
