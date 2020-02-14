@@ -10,7 +10,7 @@ namespace PhoneBook.Infrastructure
     {
         public PhoneBookContext(DbContextOptions<PhoneBookContext> options) : base(options) { }
         public DbSet<Company> Companies { get; set; }
-        public DbSet<Person> Person { get; set; }
+        public DbSet<Person> Persons { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>()

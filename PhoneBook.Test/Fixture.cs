@@ -16,7 +16,7 @@ using Xunit;
 
 namespace PhoneBook.Test
 {
-
+    // Provides only dependecies required by the unit test class
     public class Fixture
     {
         public ServiceProvider ServiceProvider { get; private set; }
@@ -24,15 +24,13 @@ namespace PhoneBook.Test
         public Fixture()
         {
             var services = new ServiceCollection();
+            // Initilized in memory database
             services
                 .AddDbContext<PhoneBookContext>(options =>  options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+
+            // configurations of IMapper that map data transfer objects to domain models
             var mapper = new MapperConfiguration(cfg =>{
                 cfg.CreateMissingTypeMaps = true;
-                //cfg.CreateMap<CompanyDto, Company>();
-                //cfg.CreateMap<Company, CompanyDto>();
-
-                //cfg.CreateMap<PersonDto, Person>();
-                //cfg.CreateMap<Person, PersonDto>();
             }).CreateMapper();
             services.AddScoped(x=> mapper);
 

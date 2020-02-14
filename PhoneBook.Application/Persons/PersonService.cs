@@ -37,7 +37,7 @@ namespace PhoneBook.Application.Persons
         {
             var persons = new List<PersonDto>();
 
-            // itrator pattern on companies collection
+            // itrator pattern on person collection
             using var itrator = _personRepository
                                 .Get()
                                 .GetEnumerator();
@@ -55,6 +55,24 @@ namespace PhoneBook.Application.Persons
         {
             var person = await _personRepository.Get(id);
             return _mapper.Map<PersonDto>(person);
+        }
+
+        public Task<List<PersonDto>> GetByName(string name)
+        {
+            var persons = new List<PersonDto>();
+
+            // itrator pattern on person collection
+            using var itrator = _personRepository
+                                .Get(name)
+                                .GetEnumerator();
+
+            while (itrator.MoveNext())
+            {
+                var person = itrator.Current;
+                var dto = _mapper.Map<PersonDto>(person);
+                persons.Add(dto);
+            }
+            return Task.FromResult(persons);
         }
 
         public async Task<PersonDto> Update(PersonDto dto)

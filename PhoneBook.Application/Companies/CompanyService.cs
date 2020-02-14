@@ -55,6 +55,24 @@ namespace PhoneBook.Application.Companies
             return _mapper.Map<CompanyDto>(company);
         }
 
+        public Task<List<CompanyDto>> GetByName(string name)
+        {
+            var comapanies = new List<CompanyDto>();
+
+            // itrator pattern on companies collection
+            using var itrator = _companyRepository
+                                .Get(name)
+                                .GetEnumerator();
+
+            while (itrator.MoveNext())
+            {
+                var company = itrator.Current;
+                var dto = _mapper.Map<CompanyDto>(company);
+                comapanies.Add(dto);
+            }
+            return Task.FromResult(comapanies);
+        }
+
         public async Task<CompanyDto> Update(CompanyDto dto)
         {
             var company = await _companyRepository.Get(dto.Id);

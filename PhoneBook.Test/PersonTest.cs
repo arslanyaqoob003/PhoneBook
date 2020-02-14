@@ -44,9 +44,10 @@ namespace PhoneBook.Test
         [Fact, Priority(3)]
         public async void Create_Person()
         {
+            var name = "Test Person";
             var dto = new PersonDto
             {
-                Name = "Test Person",
+                Name = name,
                 Address = "Denmark 4616440 KISTA",
                 DateOfBirth = new DateTime(1994, 3, 1),
                 TelephoneNumber = "0761645436",
@@ -57,15 +58,41 @@ namespace PhoneBook.Test
             var person = await _personService.Create(dto);
             person.Should().NotBeNull();
             person.Id.Should().NotBe(0);
-            person.Name.Should().Be("Test Person");
+            person.Name.Should().Be(name);
 
             person = await _personService.GetById(person.Id);
 
             person.Should().NotBeNull();
             person.Id.Should().NotBe(0);
-            person.Name.Should().Be("Test Person");
+            person.Name.Should().Be(name);
         }
         [Theory, Priority(4)]
+        [InlineData(1)]
+        public async void Update_Person(int personId)
+        {
+            var name = "Test John";
+            personId.Should().NotBe(0);
+
+            var dto = await _personService.GetById(personId);
+            dto.Should().NotBeNull();
+
+            dto.Name = name;
+
+            await _personService.Update(dto);
+            var updatedDto = await _personService.GetById(personId);
+
+            updatedDto.Should().NotBeNull();
+            updatedDto.Name.Should().Be(name);
+        }
+        [Fact, Priority(5)]
+        public async void Should_return_companies_by_Name()
+        {
+            var searchTerm = "John";
+            var persons = await _personService.GetByName(searchTerm);
+            persons.Should().NotBeNull();
+            persons.Count.Should().NotBe(0);
+        }
+        [Theory, Priority(6)]
         [InlineData(1)]
         public async void Delete_Person(int personId)
         {

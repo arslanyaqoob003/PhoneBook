@@ -10,8 +10,8 @@ namespace PhoneBook.Infrastructure
 {
     public class Repository<T> : IRepository<T> where T : Entity,new()
     {
-        private readonly PhoneBookContext context;
-        private DbSet<T> entities;
+        protected readonly PhoneBookContext context;
+        protected DbSet<T> entities;
         string errorMessage = string.Empty;
 
         public Repository(PhoneBookContext context)
