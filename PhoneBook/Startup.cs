@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PhoneBook.Application.Companies;
+using PhoneBook.Application.PersonAndCompany;
 using PhoneBook.Application.Persons;
 using PhoneBook.Infrastructure;
 using PhoneBook.Infrastructure.Repository;
@@ -49,6 +50,7 @@ namespace PhoneBook
             // register services
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IPersonService, PersonService>();
+            services.AddTransient<ICompanyPersonAggrigateService, CompanyPersonAggrigateService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

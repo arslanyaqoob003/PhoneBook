@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PhoneBook.Application.Companies;
+using PhoneBook.Application.PersonAndCompany;
 using PhoneBook.Application.Persons;
 using PhoneBook.Core.Domain;
 using PhoneBook.Infrastructure;
@@ -42,6 +43,7 @@ namespace PhoneBook.Test
             // register services
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IPersonService, PersonService>();
+            services.AddTransient<ICompanyPersonAggrigateService, CompanyPersonAggrigateService>();
 
             ServiceProvider = services.BuildServiceProvider();
             Context = ServiceProvider.GetService<PhoneBookContext>();

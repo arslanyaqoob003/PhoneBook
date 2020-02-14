@@ -16,7 +16,7 @@ Getting Started :-
 
 Install Dotnet Core SDK (https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.101-windows-x64-installer)
 Go to PhoneBook.Test directory of project using console
-Enter "dotnet test" command in CMD to Run all 14 tests of use case
+Enter "dotnet test" command in CMD to Run all 15 tests of use case
 
 
 Contribute :-
