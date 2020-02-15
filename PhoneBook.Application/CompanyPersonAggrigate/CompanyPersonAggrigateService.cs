@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using PhoneBook.Application.Companies;
 using PhoneBook.Application.Persons;
-using PhoneBook.Core.Exceptions;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PhoneBook.Application.PersonAndCompany

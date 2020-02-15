@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PhoneBook.Core.Domain;
 using PhoneBook.Infrastructure;
-using System;
 using Xunit;
 
 namespace PhoneBook.Test

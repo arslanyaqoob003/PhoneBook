@@ -1,6 +1,5 @@
 using PhoneBook.Core.Domain;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace PhoneBook
 {

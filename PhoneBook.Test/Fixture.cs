@@ -1,19 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PhoneBook.Application.Companies;
 using PhoneBook.Application.PersonAndCompany;
 using PhoneBook.Application.Persons;
-using PhoneBook.Core.Domain;
 using PhoneBook.Infrastructure;
 using PhoneBook.Infrastructure.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace PhoneBook.Test
 {

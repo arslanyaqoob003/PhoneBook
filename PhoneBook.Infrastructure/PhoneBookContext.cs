@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhoneBook.Core.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PhoneBook.Infrastructure
 {

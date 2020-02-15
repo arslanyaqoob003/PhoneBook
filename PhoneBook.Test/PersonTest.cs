@@ -1,4 +1,3 @@
-using PhoneBook.Application.Companies;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using FluentAssertions;
