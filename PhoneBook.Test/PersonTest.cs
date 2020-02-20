@@ -9,6 +9,9 @@ using PhoneBook.Application.Persons;
 
 namespace PhoneBook.Test
 {
+    /// <summary>
+    /// Contains all the test cases of companies
+    /// </summary>
     [TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
     public class PersonTest : TestBase
     {

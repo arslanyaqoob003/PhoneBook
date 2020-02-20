@@ -5,17 +5,14 @@ using System.Threading.Tasks;
 
 namespace PhoneBook.Application.PersonAndCompany
 {
+    // service implementaiton for returning comapnies and persons in aggrigate object
     public class CompanyPersonAggrigateService : Service, ICompanyPersonAggrigateService
     {
-        // used for mapping values of two objects
-        private readonly IMapper _mapper;
-
         // services
         private readonly ICompanyService _companyService;
         private readonly IPersonService _personService;
-        public CompanyPersonAggrigateService(IMapper mapper, ICompanyService companyService,IPersonService personService)
+        public CompanyPersonAggrigateService(ICompanyService companyService,IPersonService personService)
         {
-            _mapper = mapper;
             _companyService = companyService;
             _personService = personService;
         }

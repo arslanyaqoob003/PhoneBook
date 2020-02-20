@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 
 namespace PhoneBook.Application.Companies
 {
+    // service interfae for returning companies
+    // contains all the required functions according to requirement document
     public interface ICompanyService
     {
         Task<List<CompanyDto>> GetAll();

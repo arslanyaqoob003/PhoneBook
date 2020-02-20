@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using PhoneBook.Domain;
 
+// Base interface of CRUD operations which is shared by all the repository interfaces
 public interface IRepository<T> where T : Entity  
     {
         IEnumerable<T> Get();  

@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PhoneBook.Application
 {
+    // base class which contains all the shared functionality of services
     public abstract class Service
     {
+        // DTO validation functionaliy
         public bool Validate(object model)
         {
             var context = new ValidationContext(model, serviceProvider: null, items: null);

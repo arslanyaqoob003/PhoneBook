@@ -6,7 +6,9 @@ using Xunit.Priority;
 
 namespace PhoneBook.Test
 {
-    [TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
+    /// <summary>
+    /// Contains all the test cases of companies and persons operations in aggrigate manners
+    /// </summary>
     public class CompanyPersonAggrigateTest : TestBase
     {
         private readonly ICompanyPersonAggrigateService _companyPersonAggrigateService;
@@ -14,7 +16,7 @@ namespace PhoneBook.Test
         {
             _companyPersonAggrigateService = Services.GetService<ICompanyPersonAggrigateService>();
         }
-        [Fact, Priority(0)]
+        [Fact]
         public async void Should_return_companies_and_persons_by_Name()
         {
             var searchTerm = "A";

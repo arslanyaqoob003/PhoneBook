@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace PhoneBook.Infrastructure.Repository
 {
+    // Framework dependent Companies repository pattern implementation
     public class CompanyRepository : Repository<Company>,ICompanyRepository 
     {
         public CompanyRepository(PhoneBookContext context) : base(context){}

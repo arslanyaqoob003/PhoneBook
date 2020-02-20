@@ -3,6 +3,10 @@ using Microsoft.Extensions.Hosting;
 
 namespace PhoneBook
 {
+    /// <summary>
+    /// ASP.Net Core run this class main method on start
+    /// Used to register server configurations and envirnment configurations
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)

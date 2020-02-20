@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace PhoneBook.Infrastructure
 {
+    // Framework Independent Repository based class
+    // Contains all the shared functions which can be inherited by other repositories
     public class Repository<T> : IRepository<T> where T : Entity,new()
     {
         protected readonly PhoneBookContext context;

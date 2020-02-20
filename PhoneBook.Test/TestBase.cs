@@ -4,10 +4,13 @@ using Xunit;
 
 namespace PhoneBook.Test
 {
+    /// <summary>
+    /// contains Shared functionality of all the Test classes
+    /// </summary>
     public class TestBase : IClassFixture<Fixture>
     {
-        public ServiceProvider Services;
-        public PhoneBookContext Context { get; private set; }
+        public ServiceProvider Services; // IOC container to get the requred service
+        public PhoneBookContext Context { get; private set; } // Unit of work
         public TestBase(Fixture fixture)
         {
             Services = fixture.ServiceProvider;

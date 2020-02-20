@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace PhoneBook.Infrastructure.Repository
 {
+    // Framework dependent Persons repository pattern implementation
     public class PersonRepository : Repository<Person>,IPersonRepository
     {
         public PersonRepository(PhoneBookContext context) : base(context){}

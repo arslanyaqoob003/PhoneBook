@@ -17,7 +17,7 @@ I try to follow Domain Driven Design (DDD) as much as possible.
 Getting Started :-
 
 Install Dotnet Core SDK (https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.101-windows-x64-installer)
-Go to PhoneBook.Test directory of project using console
+Go to PhoneBook.Test directory of project using CMD
 Enter "dotnet test" command in CMD to Run all 15 tests of use case
 
 
@@ -32,4 +32,4 @@ Automapper
 XUnit
 Xunit.Priority
 FluentAssertions
-Asp.Net Core (optional)
+Asp.Net Core (optional) [If want to develop Api]

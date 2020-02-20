@@ -10,7 +10,9 @@ using System;
 
 namespace PhoneBook.Test
 {
-    // Provides only dependecies required by the unit test class
+    /// <summary>
+    /// Used to register in IOC continer, all the dependencies required by Test classes
+    /// </summary>
     public class Fixture
     {
         public ServiceProvider ServiceProvider { get; private set; }
@@ -37,7 +39,7 @@ namespace PhoneBook.Test
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IPersonService, PersonService>();
             services.AddTransient<ICompanyPersonAggrigateService, CompanyPersonAggrigateService>();
-
+            // IOC container
             ServiceProvider = services.BuildServiceProvider();
             Context = ServiceProvider.GetService<PhoneBookContext>();
         }

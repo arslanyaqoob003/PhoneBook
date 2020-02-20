@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace PhoneBook.Application.Companies
 {
+    // service implementation for companies according to requirement document
     public class CompanyService : Service, ICompanyService
     {
         // used for mapping values of two objects
         private readonly IMapper _mapper;
+
         private readonly ICompanyRepository _companyRepository;
         public CompanyService(IMapper mapper, ICompanyRepository companyRepository)
         {

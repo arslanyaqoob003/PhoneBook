@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace PhoneBook.Application.Persons
-{
+{ 
+    // service interfae for returning persons
+    // contains all the required functions according to requirement document
     public interface IPersonService
     {
         Task<List<PersonDto>> GetAll();

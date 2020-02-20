@@ -13,6 +13,10 @@ using PhoneBook.Infrastructure.Repository;
 
 namespace PhoneBook
 {
+    /// <summary>
+    /// Used to register the required services in order to build API
+    /// Also Used to configure Request pipeline
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -36,8 +40,8 @@ namespace PhoneBook
                 cfg.CreateMissingTypeMaps = true;
             });
 
-           // register repositories
-           services.AddScoped<ICompanyRepository, CompanyRepository>();
+            // register repositories
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
 
             // register services
@@ -55,8 +59,6 @@ namespace PhoneBook
             }
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

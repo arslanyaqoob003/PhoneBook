@@ -4,6 +4,9 @@ using System;
 
 namespace PhoneBook.Test
 {
+    /// <summary>
+    /// To seed the inittial data in mempry which is used in Test cases to validate the expected output
+    /// </summary>
     public static class TestData
     {
         public static void SeedSampleData(this PhoneBookContext context)
