@@ -3,7 +3,7 @@ using PhoneBook.Domain;
 
 namespace PhoneBook.Core.Domain
 {
-    // Core omain model of Person
+    // Core Domain model of Person
     public class Person : Entity
     {
         public string Name { get; set; }
