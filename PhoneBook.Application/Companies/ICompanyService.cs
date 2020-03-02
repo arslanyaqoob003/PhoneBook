@@ -9,7 +9,7 @@ namespace PhoneBook.Application.Companies
     {
         Task<List<CompanyDto>> GetAll();
         Task<CompanyDto> GetById(int id);
-        Task<List<CompanyDto>> GetByName(string name);
+        Task<List<CompanyDto>> Get(string name = null, string city = null);
         Task<CompanyDto> Create(CompanyDto company);
         Task<CompanyDto> Update(CompanyDto company);
         Task Delete(int id);

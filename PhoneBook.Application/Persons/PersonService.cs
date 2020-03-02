@@ -55,14 +55,13 @@ namespace PhoneBook.Application.Persons
             var person = await _personRepository.Get(id);
             return _mapper.Map<PersonDto>(person);
         }
-
-        public Task<List<PersonDto>> GetByName(string name)
+        public Task<List<PersonDto>> Get(string name = null, string cityName = null, DateTime? dobStart = null, DateTime? dobEnd = null)
         {
             var persons = new List<PersonDto>();
 
             // itrator pattern on person collection
             using var itrator = _personRepository
-                                .Get(name)
+                                .Get(name,cityName,dobStart,dobEnd)
                                 .GetEnumerator();
 
             while (itrator.MoveNext())
@@ -73,7 +72,6 @@ namespace PhoneBook.Application.Persons
             }
             return Task.FromResult(persons);
         }
-
         public async Task<PersonDto> Update(PersonDto dto)
         {
             var person = await _personRepository.Get(dto.Id);

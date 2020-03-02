@@ -6,6 +6,6 @@ namespace PhoneBook
     // Framework independent Companies repository interface
     public interface ICompanyRepository:IRepository<Company>
     {
-        IEnumerable<Company> Get(string name);
+        IEnumerable<Company> Get(string name = null, string cityName = null);
     }
 }

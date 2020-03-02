@@ -57,13 +57,13 @@ namespace PhoneBook.Application.Companies
             return _mapper.Map<CompanyDto>(company);
         }
 
-        public Task<List<CompanyDto>> GetByName(string name)
+        public Task<List<CompanyDto>> Get(string name = null, string city = null)
         {
             var comapanies = new List<CompanyDto>();
 
             // itrator pattern on companies collection
             using var itrator = _companyRepository
-                                .Get(name)
+                                .Get(name,city)
                                 .GetEnumerator();
 
             while (itrator.MoveNext())

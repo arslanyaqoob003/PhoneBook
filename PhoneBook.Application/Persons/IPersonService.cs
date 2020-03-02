@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace PhoneBook.Application.Persons
@@ -8,7 +9,7 @@ namespace PhoneBook.Application.Persons
     {
         Task<List<PersonDto>> GetAll();
         Task<PersonDto> GetById(int id);
-        Task<List<PersonDto>> GetByName(string name);
+        Task<List<PersonDto>> Get(string name = null, string cityName = null, DateTime? dobStart = null, DateTime? dobEnd = null);
         Task<PersonDto> Create(PersonDto company);
         Task<PersonDto> Update(PersonDto company);
         Task Delete(int id);

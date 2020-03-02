@@ -46,13 +46,14 @@ namespace PhoneBook.Test
         [Fact, Priority(3)]
         public async void Create_Company()
         {
-            var name = "Test Company";
+            var name = "Alliance Trafikskola AB";
             var dto = new CompanyDto
             {
                 Name = name,
                 Site = "www.test.se",
                 Address = "Danmarksgatan 4616440 KISTA",
                 DateOfCreation = new DateTime(2007, 3, 1),
+                City ="California",
                 Rating = 5,
                 TelephoneNumber = "0761645436",
                 Latitude = 29.56512,
@@ -77,8 +78,7 @@ namespace PhoneBook.Test
         [InlineData(1)]
         public async void Update_Company(int companyId)
         {
-            var name = "Alien Ware Company";
-            companyId.Should().NotBe(0);
+            var name = "Alien Ware";
 
             var dto = await _companyService.GetById(companyId);
             dto.Should().NotBeNull();
@@ -92,21 +92,32 @@ namespace PhoneBook.Test
             updatedDto.Name.Should().Be(name);
 
         }
-        [Fact, Priority(5)]
-        public async void Should_return_companies_by_Name()
+        [Theory, Priority(6)]
+        [InlineData("al",null,2)]
+        [InlineData(null,"ca",2)]
+        [InlineData("al","ca",2)]
+        public async void Should_return_companies_by_Name_and_City(string name, string city, int expect)
         {
-            var searchTerm = "Al";
-            var companies = await _companyService.GetByName(searchTerm);
+            var companies = await _companyService.Get(name,city);
             companies.Should().NotBeNull();
             companies.Count.Should().NotBe(0);
+            companies.Count.Should().Be(expect);
         }
-        [Theory, Priority(6)]
+        [Theory, Priority(8)]
         [InlineData(1)]
         public async void Delete_Company(int companyId)
         {
             await _companyService.Delete(companyId);
             var company = await _companyService.GetById(companyId);
             company.Should().BeNull();
+        }
+        [Fact, Priority(5)]
+        public async void Should_return_companies_by_Name()
+        {
+            var searchTerm = "Mous";
+            var companies = await _companyService.Get(searchTerm);
+            companies.Should().NotBeNull();
+            companies.Count.Should().Be(1);
         }
     }
 }

@@ -21,8 +21,8 @@ namespace PhoneBook.Application.PersonAndCompany
         {
             return new PersonAndCompanyDto
             {
-                Companies = await _companyService.GetByName(name),
-                Persons = await _personService.GetByName(name)
+                Companies = await _companyService.Get(name),
+                Persons = await _personService.Get(name)
             };
         }
 

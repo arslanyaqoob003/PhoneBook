@@ -10,6 +10,7 @@ namespace PhoneBook.Core.Domain
         public string Address { get; set; }
         public DateTime DateOfCreation { get; set; }
         public string TelephoneNumber { get; set; }
+        public string City { get; set; }
         public string Site { get; set; }
         public int Rating { get; set; }
         public double Longitude { get; set; }

@@ -16,6 +16,8 @@ namespace PhoneBook.Application.Persons
         public string Address { get; set; }
         [Required]
         public DateTime DateOfBirth { get; set; }
+        [Required]
+        public string City { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         [Required]

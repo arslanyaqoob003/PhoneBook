@@ -25,11 +25,11 @@ namespace PhoneBook.Test
 
             var companies = companiesAndPersons.Companies;
             companies.Count.Should().NotBe(0);
-            companies.ForEach(x => x.Name.Should().Contain(searchTerm));
+            companies.ForEach(x => x.Name.Should().Contain(searchTerm.ToLower()));
 
             var persons = companiesAndPersons.Persons;
             companiesAndPersons.Persons.Count.Should().NotBe(0);
-            persons.ForEach(x => x.Name.Should().Contain(searchTerm));
+            persons.ForEach(x => x.Name.Should().Contain(searchTerm.ToLower()));
         }
 
     }

@@ -19,6 +19,8 @@ namespace PhoneBook.Application.Companies
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         [Required]
+        public string City { get; set; }
+        [Required]
         public string TelephoneNumber { get; set; }
         [Required]
         public string Site { get; set; }
