@@ -3,6 +3,9 @@ using System.Linq.Expressions;
 
 namespace PhoneBook.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods to join where clause in Expression
+    /// </summary>
     public static class CombineExpression
     {
         public static Expression<Func<TValue, bool>> And<TValue>(

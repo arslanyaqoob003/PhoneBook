@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using PhoneBook.Infrastructure;
 using Xunit;
 
@@ -17,7 +19,6 @@ namespace PhoneBook.Test
             Context = Services.GetService<PhoneBookContext>();
             if (Context.Database.EnsureCreated())
                 Context.SeedSampleData();
-
         }
         public static void Destroy(PhoneBookContext context)
         {

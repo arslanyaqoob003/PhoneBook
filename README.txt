@@ -33,3 +33,17 @@ XUnit
 Xunit.Priority
 FluentAssertions
 Asp.Net Core (optional) [If want to develop Api]
+
+
+Patterns :-
+
+1: Singleton Pattern (StringParserFactory)
+2: Repository Pattern (In Infrastructure)
+3: Factory Pattern (StringParserFactory parser using Reflection)
+4: Streatigy Pattern (We pass streatigy to factory, which generate parser based on streatigy)
+
+
+Fault Tolerance :-
+
+Instead of passing string every where, we convert into parser that validates the string, can be passed everywhere and can be extended
+

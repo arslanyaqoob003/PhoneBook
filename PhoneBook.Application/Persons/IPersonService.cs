@@ -11,6 +11,8 @@ namespace PhoneBook.Application.Persons
         Task<PersonDto> GetById(int id);
         Task<List<PersonDto>> Get(string name = null, string cityName = null, DateTime? dobStart = null, DateTime? dobEnd = null);
         Task<PersonDto> Create(PersonDto company);
+        Task<List<PersonDto>> CreateByCsv(string csvString);
+        Task<List<PersonDto>> CreateByTsv(string tsvString);
         Task<PersonDto> Update(PersonDto company);
         Task Delete(int id);
     }

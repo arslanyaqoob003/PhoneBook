@@ -2,9 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PhoneBook.Application.Companies;
+using PhoneBook.Application.Extensions;
 using PhoneBook.Application.PersonAndCompany;
 using PhoneBook.Application.Persons;
+using PhoneBook.Core.Parser;
+using PhoneBook.Core.Parser.Factory;
 using PhoneBook.Infrastructure;
+using PhoneBook.Infrastructure.Parser;
 using PhoneBook.Infrastructure.Repository;
 using System;
 
@@ -39,6 +43,10 @@ namespace PhoneBook.Test
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IPersonService, PersonService>();
             services.AddTransient<ICompanyPersonAggrigateService, CompanyPersonAggrigateService>();
+
+            // string parsers
+            services.RegisterStringParseFactory("PhoneBook.Infrastructure");
+            services.AddTransient<IParser,CsvParser>();
             // IOC container
             ServiceProvider = services.BuildServiceProvider();
             Context = ServiceProvider.GetService<PhoneBookContext>();
