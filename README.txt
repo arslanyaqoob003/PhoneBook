@@ -45,5 +45,5 @@ Patterns :-
 
 Fault Tolerance :-
 
-Instead of passing string every where, we convert into parser that validates the string, can be passed everywhere and can be extended
+Instead of passing  csv/tsv string every where, we convert into parser that validates the string, can be passed everywhere and can be extended
 
