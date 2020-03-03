@@ -11,14 +11,14 @@ I try to follow Domain Driven Design (DDD) as much as possible.
 	 PhoneBook.Api            (Can expose API)
 	 PhoneBook.Application    (Business Logic & Service Layer)
 	 PhoneBook.Core           (Domain models, exceptions and interfaces)
-	 PhoneBook.Infrastructure (Database, Files and other depencies)
+	 PhoneBook.Infrastructure (Database, Files, CSV parsers and other depencies)
 
 
 Getting Started :-
 
 Install Dotnet Core SDK (https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.101-windows-x64-installer)
 Go to PhoneBook.Test directory of project using CMD
-Enter "dotnet test" command in CMD to Run all 15 tests of use case
+Enter "dotnet test" command in CMD to Run all prewritten 28 tests
 
 
 Contribute :-
